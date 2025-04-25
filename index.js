@@ -29,7 +29,7 @@ window.addEventListener("DOMContentLoaded", function () {
       data.temperature.current
     )}°C`;
     document.querySelector(".description").textContent =
-      data.condition.description;
+      data.Condition.Description;
 
     let timestamp = data.time * 1000;
     let date = new Date(timestamp);
