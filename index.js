@@ -28,8 +28,12 @@ window.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".temperature").textContent = `${Math.round(
       data.temperature.current
     )}°C`;
-    document.querySelector(".description").textContent =
-      data.condition.description;
+    let description = data.condition.description;
+    description = description
+      .split("")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join("");
+    document.querySelector(".description").textContent = description;
 
     let timestamp = data.time * 1000;
     let date = new Date(timestamp);
