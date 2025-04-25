@@ -73,3 +73,21 @@ body {
   width: 25px;
   margin-bottom: 0.3rem;
 }
+
+.site-footer {
+  text-align: center;
+  font-size: 12px;
+  color: #6c757d;
+  padding: 20px;
+  margin-top: 500;
+}
+
+.site-footer a {
+  color: #00feba;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
