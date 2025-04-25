@@ -1,4 +1,5 @@
 window.addEventListener("DOMContentLoaded", function () {
+  let apiKey = "t1a14ccfc72cfoaaeca2b9b3f85290df"; // <- Replace this with your real key
   let searchInput = document.querySelector(".search input");
   let searchButton = document.querySelector(".search button");
 
@@ -10,33 +11,29 @@ window.addEventListener("DOMContentLoaded", function () {
   });
 
   async function getWeather(city) {
-    let apiKey = "t1a14ccfc72cfoaaeca2b9b3f85290";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metrics`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
     let response = await fetch(apiUrl);
 
     if (response.ok) {
       let data = await response.json();
-      console.log(data);
       updateWeatherCard(data);
     } else {
-      alert("City not found");
+      alert("City not found!");
     }
   }
 
   function updateWeatherCard(data) {
-    document.querySelector(".city").textContent = data.name;
+    document.querySelector(".city").textContent = data.city;
     document.querySelector(".temperature").textContent = `${Math.round(
-      data.main.temp
+      data.temperature.current
     )}°C`;
     document.querySelector(
       ".humidity span"
-    ).textContent = `${data.main.humidity}%`;
+    ).textContent = `${data.temperature.humidity}%`;
     document.querySelector(
       ".wind span"
     ).textContent = `${data.wind.speed} km/h`;
-
-    let iconCode = data.condition.icon_url;
-    document.querySelector(".weather-icon").src = iconCode;
+    document.querySelector(".weather-icon").src = data.condition.icon_url;
   }
 });
