@@ -18,6 +18,9 @@ window.addEventListener("DOMContentLoaded", function () {
     if (response.ok) {
       let data = await response.json();
       console.log(data);
+      updateWeatherCard(data);
+    } else {
+      alert("City not found");
     }
   }
 
@@ -33,9 +36,7 @@ window.addEventListener("DOMContentLoaded", function () {
       ".wind span"
     ).textContent = `${data.wind.speed} km/h`;
 
-    let iconCode = data.weather[0].icon;
-    document.querySelector(
-      ".weather-icon"
-    ).src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+    let iconCode = data.condition.icon_url;
+    document.querySelector(".weather-icon").src = iconCode;
   }
 });
