@@ -28,6 +28,21 @@ window.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".temperature").textContent = `${Math.round(
       data.temperature.current
     )}°C`;
+    document.querySelector(".description").textContent =
+      data.condition.description;
+
+    let timestamp = data.time * 1000;
+    let date = new Date(timestamp);
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    if (minutes < 10) {
+      minutes = "0" + minutes;
+    }
+
+    document.querySelector(
+      ".time"
+    ).textContent = `last updated: ${hours}:${minutes}`;
+
     document.querySelector(
       ".humidity span"
     ).textContent = `${data.temperature.humidity}%`;
