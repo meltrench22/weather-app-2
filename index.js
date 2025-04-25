@@ -1,5 +1,3 @@
-let apiKey = "t1a14ccfc72cfoaaeca2b9b3f85290df"; // Your real API key
-
 window.addEventListener("DOMContentLoaded", function () {
   let searchInput = document.querySelector(".search input");
   let searchButton = document.querySelector(".search button");
@@ -12,15 +10,14 @@ window.addEventListener("DOMContentLoaded", function () {
   });
 
   async function getWeather(city) {
-    let response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
-    );
+    let apiKey = "t1a14ccfc72cfoaaeca2b9b3f85290";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metrics`;
+
+    let response = await fetch(apiUrl);
 
     if (response.ok) {
       let data = await response.json();
-      updateWeatherCard(data);
-    } else {
-      alert("City not found!");
+      console.log(data);
     }
   }
 
