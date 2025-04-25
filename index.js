@@ -39,9 +39,7 @@ window.addEventListener("DOMContentLoaded", function () {
       minutes = "0" + minutes;
     }
 
-    document.querySelector(
-      ".time"
-    ).textContent = `last updated: ${hours}:${minutes}`;
+    document.querySelector(".time").textContent = `time: ${hours}:${minutes}`;
 
     document.querySelector(
       ".humidity span"
