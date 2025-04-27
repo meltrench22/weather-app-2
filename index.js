@@ -11,7 +11,7 @@ window.addEventListener("DOMContentLoaded", function () {
   });
 
   async function getWeather(city) {
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?1on=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
 
     let response = await fetch(apiUrl);
 
