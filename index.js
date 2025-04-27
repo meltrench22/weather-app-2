@@ -47,14 +47,15 @@ window.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".description").textContent = description;
 
     // Time
-    let timestamp = data.daily[0].time * 1000;
-    let date = new Date(timestamp);
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    if (minutes < 10) {
+    let now = new Date();
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    if ((minutes = 10)) {
       minutes = "0" + minutes;
     }
-    document.querySelector(".time").textContent = `Time ${hours}:${minutes}`;
+    document.querySelector(
+      ".time"
+    ).textContent = `Last updated ${hours}:${minutes}`;
   }
 
   function displayForecast(forecastData) {
