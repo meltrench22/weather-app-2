@@ -54,9 +54,7 @@ window.addEventListener("DOMContentLoaded", function () {
     if (minutes < 10) {
       minutes = "0" + minutes;
     }
-    document.querySelector(
-      ".time"
-    ).textContent = `Last updated: ${hours}:${minutes}`;
+    document.querySelector(".time").textContent = `Time ${hours}:${minutes}`;
   }
 
   function displayForecast(forecastData) {
