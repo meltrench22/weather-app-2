@@ -1,5 +1,5 @@
 window.addEventListener("DOMContentLoaded", function () {
-  let apiKey = "t1a14ccfc72cfoaaeca2b9b3f85290df"; // <- Replace this with your real key
+  let apiKey = "t1a14ccfc72cfoaaeca2b9b3f85290df";
   let searchInput = document.querySelector(".search input");
   let searchButton = document.querySelector(".search button");
 
