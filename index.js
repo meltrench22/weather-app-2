@@ -57,7 +57,7 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 
 async function getForecast(coordinates) {
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?1on=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metrics`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?1on=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
 
   let response = await fetch(apiUrl);
 
@@ -68,6 +68,7 @@ async function getForecast(coordinates) {
 }
 
 function displayForecast(forecastData) {
+  console.log(forecastData);
   let forecastHTML = `<div class="forecast-container">`;
 
   forecastData.forEach(function (forecastDay, index) {
