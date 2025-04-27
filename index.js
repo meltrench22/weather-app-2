@@ -17,7 +17,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
     if (response.ok) {
       let data = await response.json();
-      Console.log(data.daily);
+      console.log(data.daily);
       updateWeatherCard(data);
       displayForecast(data.daily);
     } else {
