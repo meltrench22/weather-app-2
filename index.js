@@ -18,6 +18,7 @@ window.addEventListener("DOMContentLoaded", function () {
     if (response.ok) {
       let data = await response.json();
       updateWeatherCard(data);
+      getForecast(data.coordinates);
     } else {
       alert("City not found!");
     }
@@ -55,7 +56,7 @@ window.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-async function getforecast(coordinates) {
+async function getForecast(coordinates) {
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?1on=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metrics`;
 
   let response = await fetch(apiUrl);
@@ -69,7 +70,7 @@ async function getforecast(coordinates) {
 function displayForecast(forecastData) {
   let forecastHTML = `<div class="forecast-container">`;
 
-  forecastData.foreach(function (forecastDay, index) {
+  forecastData.forEach(function (forecastDay, index) {
     if (index < 6) {
       forecastHTML += `<div class="forecast-day">
             <div class="forecast-date">${formatDay(forecastDay.time)}</div>
