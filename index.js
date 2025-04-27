@@ -11,13 +11,13 @@ window.addEventListener("DOMContentLoaded", function () {
   });
 
   async function getWeather(city) {
+    console.log("trying to fetch weather data...");
     let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
 
     let response = await fetch(apiUrl);
 
     if (response.ok) {
       let data = await response.json();
-      console.log(data.daily);
       updateWeatherCard(data);
       displayForecast(data.daily);
     } else {
