@@ -50,7 +50,7 @@ window.addEventListener("DOMContentLoaded", function () {
     let now = new Date();
     let hours = now.getHours();
     let minutes = now.getMinutes();
-    if ((minutes = 10)) {
+    if (minutes < 10) {
       minutes = "0" + minutes;
     }
     document.querySelector(
