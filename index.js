@@ -58,28 +58,4 @@ window.addEventListener("DOMContentLoaded", function () {
       ".time"
     ).textContent = `Last updated ${hours}:${minutes}`;
   }
-
-  function displayForecast(forecastData) {
-    let forecastHTML = "";
-
-    forecastData.slice(1, 7).forEach(function (day) {
-      let timestamp = day.time * 1000;
-      let date = new Date(timestamp);
-      let dayName = date.toLocaleDateString("en-US", { weekday: "short" });
-
-      forecastHTML += `
-        <div class="forecast-day">
-          <div class="forecast-date">${dayName}</div>
-          <img src="${day.condition.icon_url}" alt="${
-        day.condition.description
-      }" class="forecast-icon" />
-          <div class="forecast-temp">${Math.round(
-            day.temperature.maximum
-          )}° / ${Math.round(day.temperature.minimum)}°</div>
-        </div>
-      `;
-    });
-
-    document.querySelector(".forecast").innerHTML = forecastHTML;
-  }
 });
